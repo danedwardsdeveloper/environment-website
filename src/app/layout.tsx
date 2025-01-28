@@ -1,15 +1,9 @@
 import type { Metadata, Viewport } from 'next'
 
-import { productionBaseURL } from '@/library/environment/publicVariables'
-
 import './styles.tailwind.css'
 
 export const metadata: Metadata = {
-  title: `My Site`,
-  description: `Site description`,
-  alternates: {
-    canonical: productionBaseURL,
-  },
+  title: `Environment Company`,
 }
 
 export const viewport: Viewport = {
@@ -24,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-GB" suppressHydrationWarning>
-      <body>{children}</body>
+      <body className="flex flex-col">{children}</body>
     </html>
   )
 }
