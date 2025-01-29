@@ -1,32 +1,21 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from 'next'
+
+const nextConfig: NextConfig = {
   output: 'standalone',
   images: {
     formats: ['image/webp'],
+    deviceSizes: [640, 750, 828, 1080, 1200],
   },
-  async redirects() {
+  async headers() {
     return [
       {
-        source: '/:path*',
-        has: [
+        source: '/robots.txt',
+        headers: [
           {
-            type: 'host', // Redirect from www.
-            value: 'www.my-site.co.uk',
+            key: 'Content-Security-Policy',
+            value: "connect-src 'self'; script-src 'none'; object-src 'none'; frame-src 'none'",
           },
         ],
-        destination: 'https://my-site.co.uk/:path*',
-        permanent: true,
-      },
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host', // Redirect from Fly.io
-            value: 'my-site.fly.dev',
-          },
-        ],
-        destination: 'https://my-site.co.uk/:path*',
-        permanent: true,
       },
     ]
   },
