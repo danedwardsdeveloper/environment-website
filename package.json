@@ -2,8 +2,7 @@
   "scripts": {
     "dev": "next dev --turbo",
     "build": "next build",
-    "start": "next start",
-    "start:local": "next build && tsx testServer.ts",
+    "start": "tsx testServer.ts",
     "lint": "next lint",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css,scss}\"",
     "test": "vitest",
@@ -28,9 +27,11 @@
     "autoprefixer": "^10.4.20",
     "eslint": "^8",
     "eslint-config-next": "15.1.1",
+    "express": "^4.21.2",
     "fs-extra": "^11.3.0",
     "postcss": "^8.4.48",
     "tailwindcss": "^3.4.14",
+    "tsx": "^4.19.2",
     "typescript": "^5.6.3"
   }
 }
