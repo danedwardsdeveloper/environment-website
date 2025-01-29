@@ -13,7 +13,7 @@ app.prepare().then(() => {
 
   server.use('/_next', express.static(path.join(__dirname, '.next')))
 
-  server.use('/_next/image', (req: Request, res: Response) => {
+  server.use('/_next/static/media', (req: Request, res: Response) => {
     handle(req, res)
   })
 
